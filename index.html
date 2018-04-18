@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>使用纯CSS实现轮播图效果</title>
+    <style>
+        /*
+        方法是用radio单选来限制住轮播图里的小圆点（只能同一时间选一个），但又不使用radio里的圆点，而是隐藏起来用label标签模拟做成轮播图的圆点
+        然后
+        */
+        ul{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        input{
+            display: none;
+        }
+
+        .wrap{
+            width: 736px;
+            height: 276px;
+            border: 5px solid #000;
+            margin: 50px auto;
+            position: relative;
+        }
+
+        label{
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: #fff;
+            left: 50%;
+            bottom: 20px;
+        }
+
+        label:nth-of-type(1){
+            margin-left: -35px;
+        }
+
+        label:nth-of-type(2){
+            margin-left: -12px;
+        }
+
+        label:nth-of-type(3){
+            margin-left: 12px;
+        }
+
+        label:nth-of-type(4){
+            margin-left: 35px;
+        }
+
+        .list{
+            width: 400%;
+        }
+        
+        .list li{
+            float: left;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <input type="radio" name="swiper" id="checked1">
+        <label for="checked1"></label>
+        <input type="radio" name="swiper" id="checked2">
+        <label for="checked2"></label>
+        <input type="radio" name="swiper" id="checked3">
+        <label for="checked3"></label>
+        <input type="radio" name="swiper" id="checked4">
+        <label for="checked4"></label>
+        <ul class="list">
+            <li><img src="img/1.jpg" alt=""></li>
+            <li><img src="img/2.jpg" alt=""></li>
+            <li><img src="img/3.jpg" alt=""></li>
+            <li><img src="img/4.jpg" alt=""></li>
+        </ul>
+    </div>
+</body>
+</html>
